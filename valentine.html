@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Valentine's Day 💖</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ==============================
+       🎨 CSS VARIABLES
+       ============================== */
+    :root {
+      --pink-deep: #c0185a;
+      --pink-mid: #e84393;
+      --pink-light: #ff85c0;
+      --pink-pale: #ffd6ea;
+      --pink-bg: #fff0f5;
+      --cream: #fff8f0;
+      --gold: #f5a623;
+      --white: #ffffff;
+      --text-dark: #5a1030;
+      --text-mid: #8a2048;
+      --shadow: rgba(192, 24, 90, 0.25);
+    }
+
+    /* ==============================
+       🌸 RESET & BASE
+       ============================== */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--pink-bg);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='24'%3E💖%3C/text%3E%3C/svg%3E"), auto;
+    }
+
+    /* ==============================
+       🌟 PARTICLE CANVAS
+       ============================== */
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ==============================
+       🎵 MUSIC PLAYER
+       ============================== */
+    #music-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 1000;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, var(--pink-mid), var(--pink-deep));
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #music-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 6px 28px var(--shadow);
+    }
+
+    #music-btn.playing {
+      animation: pulse-ring 1.8s ease-out infinite;
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        box-shadow: 0 0 0 0 rgba(232, 67, 147, 0.55);
+      }
+
+      70% {
+        box-shadow: 0 0 0 16px rgba(232, 67, 147, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(232, 67, 147, 0);
+      }
+    }
+
+    /* ==============================
+       🏠 HERO SECTION
+       ============================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--pink-light), var(--pink-mid));
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 8px 22px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+      box-shadow: 0 3px 14px var(--shadow);
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--pink-deep);
+      margin-bottom: 16px;
+      animation: fadeDown 0.9s 0.1s ease both;
+      text-shadow: 2px 3px 0px rgba(192, 24, 90, 0.12);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--pink-mid);
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 5vw, 3.2rem);
+      font-style: italic;
+      color: var(--pink-mid);
+      margin-bottom: 32px;
+      animation: fadeDown 1s 0.2s ease both;
+    }
+
+    /* ✏️ GANTI NAMA DI SINI ↓ */
+    .hero-name::before {
+      content: "untuk ";
+      font-weight: 400;
+      font-size: 0.7em;
+      color: var(--text-mid);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--text-mid);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 48px;
+      animation: fadeDown 1s 0.35s ease both;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--pink-mid), var(--pink-deep));
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 16px 36px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 6px 24px var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: fadeDown 1s 0.5s ease both;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 10px 32px var(--shadow);
+    }
+
+    .hero-cta:active {
+      transform: scale(0.97);
+    }
+
+    .hero-hearts {
+      font-size: 2.8rem;
+      margin-top: 48px;
+      letter-spacing: 12px;
+      animation: floatHeartsRow 3s ease-in-out infinite alternate, fadeDown 1s 0.7s ease both;
+    }
+
+    /* ==============================
+       💌 LETTER SECTION
+       ============================== */
+    .letter-section {
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .letter-card {
+      background: var(--white);
+      border-radius: 32px;
+      padding: clamp(36px, 6vw, 64px);
+      max-width: 680px;
+      width: 100%;
+      box-shadow: 0 16px 64px rgba(192, 24, 90, 0.14);
+      border: 2.5px solid var(--pink-pale);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .letter-card::before {
+      content: '💌';
+      position: absolute;
+      top: -20px;
+      right: 32px;
+      font-size: 3.5rem;
+      filter: drop-shadow(0 4px 8px var(--shadow));
+    }
+
+    .letter-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--pink-light), var(--pink-mid), var(--pink-deep), var(--pink-mid), var(--pink-light));
+    }
+
+    .letter-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--pink-light);
+      margin-bottom: 16px;
+    }
+
+    .letter-greeting {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-style: italic;
+      color: var(--pink-deep);
+      margin-bottom: 28px;
+    }
+
+    .letter-body {
+      font-size: clamp(0.98rem, 2vw, 1.1rem);
+      line-height: 2;
+      color: var(--text-mid);
+    }
+
+    .letter-body p {
+      margin-bottom: 18px;
+    }
+
+    .letter-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .letter-sign {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      color: var(--pink-mid);
+      margin-top: 36px;
+      text-align: right;
+    }
+
+    /* ==============================
+       ✨ REASON SECTION
+       ============================== */
+    .reasons-section {
+      position: relative;
+      z-index: 1;
+      padding: 60px 24px 80px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--pink-deep);
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-mid);
+      margin-bottom: 52px;
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .reason-card {
+      background: white;
+      border-radius: 24px;
+      padding: 32px 24px;
+      box-shadow: 0 8px 32px rgba(192, 24, 90, 0.1);
+      border: 2px solid var(--pink-pale);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: default;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-6px) rotate(-1deg);
+      box-shadow: 0 16px 48px rgba(192, 24, 90, 0.18);
+    }
+
+    .reason-card .icon {
+      font-size: 2.8rem;
+      margin-bottom: 14px;
+    }
+
+    .reason-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--pink-deep);
+      margin-bottom: 8px;
+    }
+
+    .reason-card p {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ==============================
+       🎁 SURPRISE BUTTON SECTION
+       ============================== */
+    .surprise-section {
+      position: relative;
+      z-index: 1;
+      padding: 60px 24px 80px;
+      text-align: center;
+    }
+
+    .surprise-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #ff85c0, var(--pink-mid));
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 20px 44px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(232, 67, 147, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-bottom: 32px;
+    }
+
+    .surprise-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 12px 40px rgba(232, 67, 147, 0.45);
+    }
+
+    .surprise-btn:active {
+      transform: scale(0.96);
+    }
+
+    #surprise-box {
+      display: none;
+      max-width: 460px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      padding: 36px 28px;
+      box-shadow: 0 8px 40px rgba(192, 24, 90, 0.15);
+      border: 2px solid var(--pink-pale);
+      animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    #surprise-box.visible {
+      display: block;
+    }
+
+    #surprise-box .surprise-emoji {
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+    }
+
+    #surprise-box .surprise-msg {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--pink-deep);
+      line-height: 1.6;
+    }
+
+    #surprise-box .surprise-note {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      margin-top: 12px;
+    }
+
+    /* ==============================
+       💞 CLOSING SECTION
+       ============================== */
+    .closing-section {
+      position: relative;
+      z-index: 1;
+      padding: 60px 24px 120px;
+      text-align: center;
+    }
+
+    .closing-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--pink-mid), var(--pink-deep));
+      border-radius: 32px;
+      padding: 56px 40px;
+      color: white;
+      box-shadow: 0 20px 64px rgba(192, 24, 90, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .closing-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+    }
+
+    .closing-card::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -40px;
+      width: 240px;
+      height: 240px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 50%;
+    }
+
+    .closing-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .closing-card p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      opacity: 0.92;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 10px;
+    }
+
+    .closing-hearts {
+      font-size: 2.2rem;
+      letter-spacing: 10px;
+      margin-top: 28px;
+      display: block;
+      animation: floatHeartsRow 2.5s ease-in-out infinite alternate;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ==============================
+       🔐 SECRET MESSAGE SECTION
+       ============================== */
+    .secret-section {
+      position: relative;
+      z-index: 1;
+      padding: 60px 24px 100px;
+      text-align: center;
+    }
+
+    .secret-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 20px 44px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(109, 40, 217, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .secret-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 12px 40px rgba(109, 40, 217, 0.45);
+    }
+
+    .secret-btn:active {
+      transform: scale(0.96);
+    }
+
+    .secret-btn.shake {
+      animation: btnShake 0.5s ease;
+    }
+
+    @keyframes btnShake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      10% {
+        transform: translateX(-8px) rotate(-2deg);
+      }
+
+      20% {
+        transform: translateX(8px) rotate(2deg);
+      }
+
+      30% {
+        transform: translateX(-6px) rotate(-1deg);
+      }
+
+      40% {
+        transform: translateX(6px) rotate(1deg);
+      }
+
+      50% {
+        transform: translateX(-4px);
+      }
+
+      60% {
+        transform: translateX(4px);
+      }
+
+      70% {
+        transform: translateX(-2px);
+      }
+
+      80% {
+        transform: translateX(2px);
+      }
+    }
+
+    .secret-counter {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .secret-counter.visible {
+      opacity: 1;
+    }
+
+    .confession-card {
+      display: none;
+      max-width: 620px;
+      margin: 32px auto 0;
+      background: linear-gradient(135deg, #7c3aed, #4c1d95);
+      border-radius: 32px;
+      padding: 56px 40px;
+      color: white;
+      box-shadow: 0 20px 64px rgba(109, 40, 217, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .confession-card.visible {
+      display: block;
+      animation: confessionReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    @keyframes confessionReveal {
+      from {
+        opacity: 0;
+        transform: scale(0.5) rotate(-3deg);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05) rotate(1deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    .confession-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+    }
+
+    .confession-card::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -40px;
+      width: 240px;
+      height: 240px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 50%;
+    }
+
+    .confession-card .conf-emoji {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      display: block;
+      position: relative;
+      z-index: 1;
+      animation: floatHeartsRow 2s ease-in-out infinite alternate;
+    }
+
+    .confession-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 5vw, 2.5rem);
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .confession-card .conf-text {
+      font-size: 1.05rem;
+      line-height: 2;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 12px;
+    }
+
+    .confession-card .conf-sign {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      margin-top: 28px;
+      opacity: 0.85;
+      position: relative;
+      z-index: 1;
+    }
+
+    .confession-card .conf-hearts {
+      font-size: 2rem;
+      letter-spacing: 10px;
+      margin-top: 24px;
+      display: block;
+      animation: floatHeartsRow 2.5s ease-in-out infinite alternate;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Mini confetti for confession */
+    .mini-confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ==============================
+       🎆 ANIMATIONS
+       ============================== */
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatHeartsRow {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.7);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* ==============================
+       🌺 DECORATIVE DIVIDER
+       ============================== */
+    .divider {
+      text-align: center;
+      font-size: 1.5rem;
+      letter-spacing: 16px;
+      color: var(--pink-light);
+      margin: 8px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ==============================
+       📱 RESPONSIVE
+       ============================== */
+    @media (max-width: 480px) {
+      .reasons-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .closing-card {
+        padding: 40px 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🌸 FALLING PARTICLES CANVAS -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- 🎵 MUSIC BUTTON -->
+  <!-- 🎵 Musik: pakai file lokal atau link .mp3 di src di bawah -->
+  <audio id="bg-music" loop>
+    <source src="falling.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="music-btn" title="Play / Pause musik" onclick="toggleMusic()">🎵</button>
+
+  <!-- =====================
+       🏠 HERO
+       ===================== -->
+  <section class="hero">
+    <span class="hero-badge">💘 14 Februari 2026 💘</span>
+
+    <h1 class="hero-title">
+      Happy<br /><em>Valentine's Day</em>
+    </h1>
+
+    <!-- ✏️ GANTI "NamaDia" dengan nama asli orang yang kamu sayang! -->
+    <p class="hero-name">Olivia</p>
+
+    <p class="hero-subtitle">
+      Dari sekian banyak orang di dunia ini, aku pilih kamu — bukan karena terpaksa,
+      tapi karena kamu memang the best. Literally. 😊
+    </p>
+
+    <a href="#letter" class="hero-cta">
+      💌 Baca Surat Kecilku
+    </a>
+
+    <div class="hero-hearts">💖 💗 💕 💓</div>
+  </section>
+
+  <div class="divider">✿ ❀ ✿ ❀ ✿</div>
+
+  <!-- =====================
+       💌 LOVE LETTER
+       ===================== -->
+  <section class="letter-section" id="letter">
+    <div class="letter-card">
+      <p class="letter-label">✉️ surat untukmu</p>
+
+      <!-- ✏️ GANTI "NamaDia" di bawah ini juga ya! -->
+      <p class="letter-greeting">Hai, Olivia yang paling uwu~</p>
+
+      <div class="letter-body">
+        <p>
+          Tau nggak sih, akhir akhir ini hari yang aku lalui bareng kamu tuh rasanya kayak
+          di-cheat code. Too good to be real, tapi nyata. Dan itu bikin aku senyum-senyum
+          sendiri kayak orang Gila tiap ingat kamu. 😅
+        </p>
+        <p>
+          Banyak hal yang mau aku bilang, tapi lidah aku mendadak jadi penyair
+          dadakan jirrr kalau udah soal kamu. Jadi biarlah kata-kata ini yang ngomong:
+          <strong style="color:var(--pink-deep)">kamu berarti banget buat aku.</strong>
+          Bukan lebay, tapi beneran.... ciusss.
+        </p>
+        <p>
+          Di hari spesial ini, aku cuma mau bilang — makasihhhhh bangett. jujur aja I Love U so muchhh.
+          mungkin kamu orang kedua yang aku temuin menarik sejak smp... 💕
+        </p>
+        <p>
+          Selamat Hari Valentine 🌸
+        </p>
+      </div>
+
+      <p class="letter-sign">dengan cinta, aku 🌷</p>
+    </div>
+  </section>
+
+  <div class="divider">✿ ❀ ✿ ❀ ✿</div>
+
+  <!-- =====================
+       ✨ ALASAN SAYANG
+       ===================== -->
+  <section class="reasons-section" id="reasons">
+    <h2 class="section-title">Kenapa Aku Sayang Kamu?</h2>
+    <p class="section-sub">Ini baru sebagian kecilnya aja, loh 😌✨</p>
+
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="icon">😂</div>
+        <h3>Kamu Bikin Aku Ngakak</h3>
+        <p>Jokes kamu kadang random banget (emang random), tapi entah kenapa selalu berhasil bikin aku ketawa sampe perut sakit.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">🤗</div>
+        <h3>Kamu Selalu Ada</h3>
+        <p>Di hari yang buruk sekalipun, kehadiran kamu — bahkan cuma lewat chat — udah cukup buat nambahin energi aku.
+        </p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">🌟</div>
+        <h3>Kamu Istimewa Banget</h3>
+        <p>Ada sesuatu di kamu yang beda dari yang lain. Susah dijelasin, tapi aku ngerasain itu setiap saat.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">🧡</div>
+        <h3>Kamu Tulus Apa Adanya</h3>
+        <p>Kamu nggak pake topeng. Kamu jadi diri sendiri, dan itu justru yang paling bikin aku respect sama kamu.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">🌸</div>
+        <h3>Kamu Bikin Hari Lebih Warna</h3>
+        <p>Hidup sebelum kenal kamu? Abu-abu. Setelah kenal kamu? Penuh warna. Pink mostly. Sesuai tema ini. 😆</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">💫</div>
+        <h3>Dan masih banyak lagi...</h3>
+        <p>Ini list-nya bakalan panjang banget kalau ditulis semua. Intinya: kamu itu banyak banget plusnya. 💖</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">✿ ❀ ✿ ❀ ✿</div>
+
+  <!-- =====================
+       🎁 SURPRISE BUTTON
+       ===================== -->
+  <section class="surprise-section">
+    <h2 class="section-title">Psst... Ada Kejutan!</h2>
+    <p class="section-sub">Klik tombol di bawah ini ya~</p>
+
+    <br />
+    <button class="surprise-btn" onclick="showSurprise()">
+      🎁 Klik untuk Kejutan!
+    </button>
+
+    <div id="surprise-box">
+      <div class="surprise-emoji" id="surprise-emoji">💝</div>
+      <p class="surprise-msg" id="surprise-msg">"Loading kejutan..."</p>
+      <p class="surprise-note" id="surprise-note">— dari aku yang sayang kamu~</p>
+    </div>
+  </section>
+
+  <div class="divider">✿ ❀ ✿ ❀ ✿</div>
+
+  <!-- =====================
+       💞 CLOSING
+       ===================== -->
+  <section class="closing-section">
+    <div class="closing-card">
+      <h2>Selamanya Ada Kamu 💖</h2>
+      <p>
+        Nggak perlu nunggu tanggal 14 Februari buat ngerasain cinta ini — karena tiap hari
+        bareng kamu, rasanya Valentine terus.
+      </p>
+      <p>
+        Semoga tahun ini dan seterusnya kita terus ketawa bareng, tumbuh bareng,
+        dan saling support satu sama lain. Always. 🌷
+      </p>
+      <!-- ✏️ GANTI "NamaDia" di sini juga! -->
+      <p style="margin-top:20px; font-weight:800; font-size:1.1rem;">
+        Happy Valentine's Day, Olivia~ 🥰
+      </p>
+      <span class="closing-hearts">💖 💗 💕 💝 💘</span>
+    </div>
+  </section>
+
+  <div class="divider">✿ ❀ ✿ ❀ ✿</div>
+
+  <!-- =====================
+       🔐 SECRET MESSAGE
+       ===================== -->
+  <section class="secret-section">
+    <h2 class="section-title">Ada Satu Lagi... 🤫</h2>
+    <p class="section-sub">Ini pesan paling rahasia. Berani buka?</p>
+    <br />
+
+    <button class="secret-btn" id="secret-btn" onclick="handleSecretClick()">
+      🔒 Buka Pesan Sangat Rahasia
+    </button>
+
+
+
+    <div class="confession-card" id="confession-card">
+      <span class="conf-emoji">💜💖💜</span>
+      <h2>Aku Harus Jujur Sama Kamu...</h2>
+      <p class="conf-text">
+        Jadi gini... sebenernya udah dari lama banget aku pengen ngomong ini.
+        Tapi tiap kali mau bilang, lidah aku tiba-tiba kram, jantung deg-degan,
+        dan otak aku error kayak WiFi SPMB. 😭
+      </p>
+      <p class="conf-text">
+        Tapi hari ini aku mau beraniin diri...
+      </p>
+      <p class="conf-text" style="font-size: 1.2rem; font-weight: 800;">
+        <em>Aku suka kamu.</em> Beneran. Bukan bercanda, bukan iseng,
+        bukan karena hari Valentine doang. Tapi karena memang dari hati yang paling dalam,
+        aku ngerasa kamu itu... spesial banget.
+      </p>
+      <p class="conf-text">
+        Kamu itu orang yang bikin hari-hari aku jadi lebih berwarna.
+        Yang bikin aku senyum tanpa alasan. Yang bikin aku mikir
+        "semoga dia baik-baik aja" setiap malem sebelum tidur. 🥺
+      </p>
+      <p class="conf-text">
+        Aku nggak tau kamu ngerasa hal yang sama atau nggak.
+        Tapi yang aku tau pasti: <strong>perasaan ini tulus.</strong>
+        Dan aku nggak mau nyesel karena nggak pernah bilang.
+      </p>
+      <p class="conf-text" style="font-size: 1.15rem; font-weight: 700; margin-top: 20px;">
+        So yeah... itu dia. Confession-ku. 💜<br>
+        Sekarang kamu tau. Dan aku lega banget udah bilang. 😊
+      </p>
+      <p class="conf-sign">— dari seseorang yang diam-diam (tapi sekarang udah nggak diam-diam lagi) sayang sama kamu 🌷
+      </p>
+      <span class="conf-hearts">💜 💖 💜 💖 💜</span>
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       🎮 JAVASCRIPT
+       ============================== -->
+  <script>
+    /* ============================
+       🌸 FALLING PARTICLES
+       ============================ */
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+
+    const SYMBOLS = ['💖', '💗', '💕', '💓', '🌸', '✿', '🌷', '💝', '✨', '🌺'];
+    let particles = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() { this.reset(true); }
+
+      reset(initial = false) {
+        this.x = Math.random() * canvas.width;
+        this.y = initial ? Math.random() * canvas.height : -40;
+        this.size = 14 + Math.random() * 18;
+        this.speed = 0.6 + Math.random() * 1.2;
+        this.drift = (Math.random() - 0.5) * 0.6;
+        this.wobble = Math.random() * Math.PI * 2;
+        this.wobbleSpeed = 0.015 + Math.random() * 0.02;
+        this.symbol = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
+        this.opacity = 0.55 + Math.random() * 0.4;
+        this.rotation = (Math.random() - 0.5) * 0.4;
+      }
+
+      update() {
+        this.wobble += this.wobbleSpeed;
+        this.x += this.drift + Math.sin(this.wobble) * 0.5;
+        this.y += this.speed;
+        if (this.y > canvas.height + 50) this.reset();
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.opacity;
+        ctx.font = `${this.size}px serif`;
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.fillText(this.symbol, 0, 0);
+        ctx.restore();
+      }
+    }
+
+    // Spawn particles
+    for (let i = 0; i < 42; i++) particles.push(new Particle());
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    /* ============================
+       🎵 MUSIC CONTROL
+       ============================ */
+    const audio = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-btn');
+    let isPlaying = false;
+
+    // Set volume
+    audio.volume = 0.2;
+
+    // Fungsi helper untuk mulai musik
+    function startMusic() {
+      audio.play().then(() => {
+        isPlaying = true;
+        musicBtn.textContent = '⏸️';
+        musicBtn.classList.add('playing');
+      }).catch(() => {
+        isPlaying = false;
+      });
+    }
+
+    // Coba auto-play saat halaman dibuka
+    window.addEventListener('DOMContentLoaded', () => {
+      const tryPlay = audio.play();
+      if (tryPlay !== undefined) {
+        tryPlay.then(() => {
+          isPlaying = true;
+          musicBtn.textContent = '⏸️';
+          musicBtn.classList.add('playing');
+        }).catch(() => {
+          // Browser block autoplay — tunggu klik pertama user
+          isPlaying = false;
+
+          // 🔑 Kunci utama: putar musik saat user pertama kali klik di mana saja
+          function autoPlayOnClick() {
+            if (!isPlaying) {
+              startMusic();
+            }
+            document.removeEventListener('click', autoPlayOnClick);
+            document.removeEventListener('touchstart', autoPlayOnClick);
+          }
+          document.addEventListener('click', autoPlayOnClick);
+          document.addEventListener('touchstart', autoPlayOnClick);
+        });
+      }
+    });
+
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        musicBtn.textContent = '🎵';
+        musicBtn.classList.remove('playing');
+      } else {
+        audio.play();
+        isPlaying = true;
+        musicBtn.textContent = '⏸️';
+        musicBtn.classList.add('playing');
+      }
+    }
+
+    /* ============================
+       🎁 SURPRISE MESSAGES
+       ============================ */
+    const surprises = [
+      {
+        emoji: '💝',
+        msg: '"Kalau hidup ini game, kamu itu secret character terbaik yang pernah aku unlock."',
+        note: '— untungnya aku udah nemuin kamu duluan 😌'
+      },
+      {
+        emoji: '🌸',
+        msg: '"Kamu itu kayak wifi gratis di tempat umum — langsung bikin aku nyaman dan betah."',
+        note: '— ini pujian tertinggi di era modern, ya? 😄'
+      },
+      {
+        emoji: '🥺',
+        msg: '"Di antara semua playlist aku, kamu tetap jadi lagu favorit yang nggak pernah aku skip."',
+        note: '— literally. nggak pernah. sekalipun. 💕'
+      },
+      {
+        emoji: '💫',
+        msg: '"Kalau aku boleh milih lagi — aku pilih kamu. Berkali-kali. Di semua universe yang ada."',
+        note: '— bahkan di multiverse yang aneh-aneh sekalipun 🥹'
+      },
+      {
+        emoji: '🌷',
+        msg: '"Ada yang bilang cinta itu buta. Tapi cintaku ke kamu 20/20 — aku liat kamu jelas banget."',
+        note: '— dan tetap jatuh cinta. that says a lot. 💖'
+      },
+      {
+        emoji: '🎀',
+        msg: '"Kamu adalah alasan utama kenapa aku nggak butuh GPS — karena di mana pun, aku selalu mau ke arah kamu."',
+        note: '— agak lebay, tapi serius 😆'
+      },
+    ];
+
+    let surpriseIndex = 0;
+    let surpriseShown = false;
+
+    function showSurprise() {
+      const box = document.getElementById('surprise-box');
+      const emoji = document.getElementById('surprise-emoji');
+      const msg = document.getElementById('surprise-msg');
+      const note = document.getElementById('surprise-note');
+
+      const s = surprises[surpriseIndex % surprises.length];
+      emoji.textContent = s.emoji;
+      msg.textContent = s.msg;
+      note.textContent = s.note;
+
+      if (!surpriseShown) {
+        box.classList.add('visible');
+        surpriseShown = true;
+      } else {
+        // Refresh animasi
+        box.style.animation = 'none';
+        box.offsetHeight;
+        box.style.animation = '';
+        box.style.animation = 'popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both';
+      }
+
+      surpriseIndex++;
+    }
+
+    /* ============================
+       🌟 SCROLL REVEAL
+       ============================ */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reason-card, .letter-card, .closing-card, .confession-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+
+    /* ============================
+       🔐 SECRET MESSAGE LOGIC
+       ============================ */
+    const secretTexts = [
+      { text: "🔓 Coba Sekali Lagi...", emoji: "😏" },
+      { text: "🤔 Hmm, Coba Pencet Sekali", emoji: "🤨" },
+      { text: "😜 Sekali Lagi Deh...", emoji: "😝" },
+      { text: "🙈 Eitss, Belum Boleh!", emoji: "🫣" },
+      { text: "😤 Yakin Mau Liat? Pencet Lagi!", emoji: "😤" },
+      { text: "🫠 Sabar Dikit Kenapa Sih~", emoji: "🫠" },
+      { text: "🥹 Oke Oke, Sekali Lagi Aja", emoji: "🥹" },
+      { text: "💀 TERAKHIR DEH, Janji!", emoji: "💀" },
+      { text: "💜 Oke Fine, Ini Beneran Terakhir...", emoji: "💜" },
+    ];
+
+    let secretClickCount = 0;
+    const secretBtn = document.getElementById('secret-btn');
+    const confessionCard = document.getElementById('confession-card');
+
+    function handleSecretClick() {
+      if (secretClickCount < secretTexts.length) {
+        const current = secretTexts[secretClickCount];
+        secretBtn.textContent = current.text;
+
+        // Shake animation
+        secretBtn.classList.remove('shake');
+        void secretBtn.offsetHeight;
+        secretBtn.classList.add('shake');
+
+        // Change button color gradually from purple to pink
+        const progress = secretClickCount / secretTexts.length;
+        const hue = 270 - (progress * 40);
+        secretBtn.style.background = `linear-gradient(135deg, hsl(${hue}, 70%, 55%), hsl(${hue - 20}, 80%, 35%))`;
+
+        secretClickCount++;
+      } else {
+        // FINAL CLICK — reveal the confession!
+        secretBtn.style.display = 'none';
+
+        // Reset opacity for confession card (scroll reveal sets it to 0)
+        confessionCard.style.opacity = '1';
+        confessionCard.style.transform = 'scale(1)';
+        confessionCard.classList.add('visible');
+
+        // Scroll to the card smoothly
+        setTimeout(() => {
+          confessionCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+
+        // Launch confetti!
+        launchConfetti();
+      }
+    }
+
+    function launchConfetti() {
+      const confettiCanvas = document.createElement('canvas');
+      confettiCanvas.classList.add('mini-confetti');
+      document.body.appendChild(confettiCanvas);
+      const cCtx = confettiCanvas.getContext('2d');
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+
+      const confettiPieces = [];
+      const confettiColors = ['#7c3aed', '#e84393', '#ff85c0', '#ffd6ea', '#f5a623', '#ffffff', '#a78bfa', '#c084fc'];
+      const confettiEmojis = ['💜', '💖', '💗', '✨', '🌸', '💕', '🎀'];
+
+      for (let i = 0; i < 120; i++) {
+        confettiPieces.push({
+          x: Math.random() * confettiCanvas.width,
+          y: -20 - Math.random() * 400,
+          size: 8 + Math.random() * 12,
+          speedY: 2 + Math.random() * 4,
+          speedX: (Math.random() - 0.5) * 4,
+          rotation: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 8,
+          color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+          emoji: Math.random() > 0.5 ? confettiEmojis[Math.floor(Math.random() * confettiEmojis.length)] : null,
+          opacity: 1,
+        });
+      }
+
+      let confettiFrame;
+      function animateConfetti() {
+        cCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        let allDone = true;
+
+        confettiPieces.forEach(p => {
+          p.y += p.speedY;
+          p.x += p.speedX;
+          p.rotation += p.rotSpeed;
+          p.speedY += 0.05;
+
+          if (p.y > confettiCanvas.height + 50) {
+            p.opacity -= 0.02;
+          }
+          if (p.opacity > 0) allDone = false;
+
+          cCtx.save();
+          cCtx.globalAlpha = Math.max(0, p.opacity);
+          cCtx.translate(p.x, p.y);
+          cCtx.rotate((p.rotation * Math.PI) / 180);
+
+          if (p.emoji) {
+            cCtx.font = `${p.size + 6}px serif`;
+            cCtx.fillText(p.emoji, 0, 0);
+          } else {
+            cCtx.fillStyle = p.color;
+            cCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+          }
+
+          cCtx.restore();
+        });
+
+        if (!allDone) {
+          confettiFrame = requestAnimationFrame(animateConfetti);
+        } else {
+          cancelAnimationFrame(confettiFrame);
+          confettiCanvas.remove();
+        }
+      }
+      animateConfetti();
+    }
+  </script>
+
+</body>
+
+</html>
